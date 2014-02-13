@@ -51,7 +51,7 @@ class Client(object):
         :rtype: dict
         """
         status, resp = self._request(
-            'POST', 'apps/{}/{}'.format(app_id, environment),
+            'POST', 'apps/{0}/{1}'.format(app_id, environment),
             data={'certificate': certificate, 'timeout': timeout}
         )
         if status != 201:
@@ -102,11 +102,11 @@ class Client(object):
             elif isinstance(note, Notification):
                 notes.append(note)
             else:
-                raise ValueError('Unknown notification: {}'.format(repr(note)))
+                raise ValueError('Unknown notification: {0}'.format(repr(note)))
         data = [n.to_simple() for n in notes]
 
         status, resp = self._request(
-            'POST', 'apps/{}/{}/notifications'.format(app_id, environment), 
+            'POST', 'apps/{0}/{1}/notifications'.format(app_id, environment), 
             data=data
         )
         if status != 201:
@@ -134,7 +134,7 @@ class Client(object):
         :rtrype: list
         """
         status, feedbacks = self._request(
-            'GET', 'apps/{}/{}/feedback'.format(app_id, environment)
+            'GET', 'apps/{0}/{1}/feedback'.format(app_id, environment)
         )
         if status != 200:
             raise ClientError('Could not fetch feedbacks', feedbacks)
@@ -156,7 +156,7 @@ class Client(object):
         :rtype: list
         """
         status, disconnects = self._request(
-            'GET', 'apps/{}/{}/disconnections'.format(app_id, environment)
+            'GET', 'apps/{0}/{1}/disconnections'.format(app_id, environment)
         )
         if status != 200:
             raise ClientError('Could not retrieve disconnections', disconnects)
@@ -166,7 +166,7 @@ class Client(object):
         return ret
 
     def _request(self, method, path, args=None, data=None):
-        url = '{}:{}/{}'.format(self.host, self.port, path)
+        url = '{0}:{1}/{2}'.format(self.host, self.port, path)
         kwargs = {'timeout': self.timeout}
         if args is not None:
             kwargs['params'] = args

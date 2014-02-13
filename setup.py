@@ -42,7 +42,7 @@ A lot more documentation and the issue tracker can be found on the `github page
 
 setup(
   name="pyapns",
-  version="0.4.0",
+  version="0.5.0.ejs",
   description="A universal Apple Push Notification Service (APNS) provider.",
   long_description=DOC,
   author="Samuel Sutch",
@@ -51,7 +51,7 @@ setup(
   url="http://github.com/samuraisam/pyapns/tree/master",
   download_url="http://github.com/samuraisam/pyapns/tree/master",
   classifiers = [
-    'Development Status :: 4 - Beta',
+    'Development Status :: 5 - Beta',
     'Environment :: Web Environment',
     'Intended Audience :: Developers',
     'License :: OSI Approved :: MIT License',
