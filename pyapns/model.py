@@ -229,7 +229,7 @@ class Notification(object):
                 return t.decode('hex')
             except TypeError, e:
                 raise ValueError(
-                    'token "{}" could not be decoded: {}'.format(str(t), str(e)
+                    'token "{0}" could not be decoded: {1}'.format(str(t), str(e)
                 ))
 
         encoded_payload = json.dumps(self.payload,
@@ -238,7 +238,7 @@ class Notification(object):
                          self.expiry, encoded_payload)
 
     def __repr__(self):
-        return u'<Notification token={} identifier={} expiry={} payload={}>'.format(
+        return u'<Notification token={0} identifier={1} expiry={2} payload={3}>'.format(
             self.token, self.identifier, self.expiry, self.payload
         )
 
@@ -306,7 +306,7 @@ class DisconnectionEvent(object):
         return evt
 
     def __repr__(self):
-        return '<DisconnectionEvent internalIdent={} error="{}"" notification={}>'.format(
+        return '<DisconnectionEvent internalIdent={0} error="{2}"" notification={3}>'.format(
             self.identifier, APNS_STATUS_CODES[self.code], 
             self.offending_notification
         )
